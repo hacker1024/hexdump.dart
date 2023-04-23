@@ -3,11 +3,21 @@ import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 
+/// A [Converter] that converts a [Uint8List] to a hex dump.
 class HexDumpEncoder extends Converter<Uint8List, String> {
+  /// The number of bytes to show before starting a new line.
   final int bytesPerLine;
+
+  /// Use uppercase letters or not for hexadecimal digits.
   final bool uppercase;
+
+  /// Show the byte offset at the start of each line.
   final bool showOffset;
+
+  /// Show the text representation of the bytes at the end of each line.
   final bool showText;
+
+  /// The string to use to separate the offset, hex, and text sections.
   final String sectionDelimiter;
 
   const HexDumpEncoder({
