@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 
-/// A [Converter] that converts a [Uint8List] to a hex dump.
-class HexDumpEncoder extends Converter<Uint8List, String> {
+/// A [Converter] that converts a [List] of integers to a hex dump.
+///
+/// [Uint8List]s are supported and encouraged.
+class HexDumpEncoder extends Converter<List<int>, String> {
   /// The number of bytes to show before starting a new line.
   final int bytesPerLine;
 
@@ -29,13 +30,13 @@ class HexDumpEncoder extends Converter<Uint8List, String> {
   });
 
   @override
-  String convert(Uint8List input) {
+  String convert(List<int> input) {
     final output = StringBuffer();
     _convert(input, output);
     return output.toString();
   }
 
-  void _convert(Uint8List input, StringSink output) {
+  void _convert(List<int> input, StringSink output) {
     final int offsetWidth;
     if (showOffset) {
       final maxOffset = input.length - 1;
