@@ -1,6 +1,7 @@
 # hexdump
 
-A Dart package to display binary data in a human-readable hexadecimal form.
+A Dart package to display binary data in a human-readable hexadecimal form.  
+It provides a `HexDumpEncoder` class that implements [`Converter<List<int>, String>`](https://api.dart.dev/stable/dart-convert/Converter-class.html).
 
 ## Usage
 
