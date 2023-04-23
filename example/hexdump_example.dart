@@ -6,5 +6,5 @@ import 'package:hexdump/hexdump.dart';
 
 void main() {
   const hexDumpEncoder = HexDumpEncoder(sectionDelimiter: '    ');
-  print(hexDumpEncoder.convert(utf8.encoder.convert('Hello, World!')));
+  print(utf8.encoder.fuse(hexDumpEncoder).convert('Hello, World!'));
 }
